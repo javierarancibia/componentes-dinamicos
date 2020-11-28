@@ -1,0 +1,26 @@
+<h1>New User</h1>
+
+<%= render 'form', user: @user %>
+
+<%= link_to 'Back', users_path %>
+
+
+<div class="container">
+  <h2>Alert Events</h2>
+  <p>The <strong>close</strong> event occurs when the alert message is about to be closed.</p>
+  <div class="alert alert-danger alert-dismissible" id="myAlert">
+    <a href="#" class="close">&times;</a>
+    <strong>Hey you!</strong> Try to close this alert message.
+  </div>
+</div>
+
+<script>
+$(document).ready(function(){
+  $(".close").click(function(){
+    $("#myAlert").alert("close");
+  });
+  $("#myAlert").on('close.bs.alert', function(){
+    alert('The alert message is about to be closed.');
+  });
+});
+</script>
